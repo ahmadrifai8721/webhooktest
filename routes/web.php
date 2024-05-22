@@ -34,5 +34,9 @@ Route::get("me", function () {
     //     // "system_default" => 0
     // ]));
     $update = Telegram::commandsHandler(true);
-    return $update;
+
+    return Telegram::sendMessage([
+        'chat_id' => 7149410666,
+        'text' => json_encode($update)
+    ]);
 });
