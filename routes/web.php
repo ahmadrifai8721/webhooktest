@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get("setWebhook", function () {
-    $url = "http://test." . env("CPANEL_DOMAIN") . "/me";
+    $url = "https://test." . env("CPANEL_DOMAIN") . "/me";
     // dd($url);
     return Telegram::setWebhook(["url" => $url]);
 });
