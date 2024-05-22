@@ -24,6 +24,16 @@ Route::get("setWebhook", function () {
     // dd($url);
     return Telegram::setWebhook(["url" => $url]);
 });
+Route::get("webhookStatus", function () {
+
+    $data = [
+        Telegram::getWebhookInfo(),
+        Telegram::getWebhookUpdate(),
+
+    ];
+
+    return $data;
+});
 
 Route::get("me", function () {
     // $cpanel =

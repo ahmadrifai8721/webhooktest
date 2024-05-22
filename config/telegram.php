@@ -34,7 +34,7 @@ return [
         'mybot' => [
             'token' => env('TELEGRAM_BOT_TOKEN', '7149410666:AAE6otQegxV0KKMne1lvBtG7VIIRsrsBPVQ'),
             'certificate_path' => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
-            'webhook_url' => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
+            'webhook_url' => env('TELEGRAM_WEBHOOK_URL', "https://webhook." . env("CPANEL_DOMAIN") . "/me"),
             /*
              * @see https://core.telegram.org/bots/api#update
              */
