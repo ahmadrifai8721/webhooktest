@@ -35,7 +35,7 @@ Route::get("webhookStatus", function () {
     return $data;
 });
 
-Route::get("me", function () {
+Route::any("me", function () {
     // $cpanel =
     //     $cpanel = new Cpanel(env("CPANEL_DOMAIN"), env("CPANEL_API_TOKEN"), env("CPANEL_USERNAME"), 'https', env("CPANEL_PORT"));
     // return response($cpanel->callUAPI("ResourceUsage", "get_usages", [
