@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("setWebhook", function () {
+    $url = "test." . env("CPANEL_DOMAIN") . "/me";
+    dd($url);
+    return Telegram::setWebhook(["url" => $url]);
+});
 
 Route::get("me", function () {
     // $cpanel =
@@ -28,14 +33,6 @@ Route::get("me", function () {
     //     // "domain" => "koalaterbang.cloud",
     //     // "system_default" => 0
     // ]));
-    // getdomain - Get Domain List
-    // getppp - Get PPP List
-    // getserver - Get Server List
-    // getserverip - Get IP Server List
-    // getserverstatus - Get Status Server
-    // login - Login To System
-    // logout - Logout from system
-    $update = Telegram::commandsHandler(true);
 
-    return $update;
+
 });
