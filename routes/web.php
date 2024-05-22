@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get("setWebhook", function () {
-    $url = "test." . env("CPANEL_DOMAIN") . "/me";
+    $url = "http://test." . env("CPANEL_DOMAIN") . "/me";
     // dd($url);
     return Telegram::setWebhook(["url" => $url]);
 });
@@ -33,6 +33,6 @@ Route::get("me", function () {
     //     // "domain" => "koalaterbang.cloud",
     //     // "system_default" => 0
     // ]));
-
-
+    $update = Telegram::commandsHandler(true);
+    return $update;
 });
