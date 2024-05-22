@@ -1,0 +1,62 @@
+{
+    "name": "mhasnainjafri/cpanel",
+    "description": "Laravel CPanel API Library for Managing cPanel Functionalities",
+    "keywords": [
+        "cpanel",
+        "cpanel-api",
+        "cpanel-library",
+        "cpanel-management",
+        "cpanel-utilities",
+        "cpanel-email",
+        "cpanel-database",
+        "cpanel-subdomain",
+        "cpanel-disk-quota",
+        "laravel-cpanel",
+        "laravel-cpanel-library",
+        "laravel-cpanel-api",
+        "laravel-cpanel-management",
+        "laravel-cpanel-utilities"
+    ],   
+    "minimum-stability": "stable",
+ 
+    "homepage": "https://github.com/mhasnainjafri",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Muhammad Hasnain",
+            "email": "mhasnainjafri0099@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "MHasnainJafri\\Cpanel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MHasnainJafri\\Cpanel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MHasnainJafri\\Cpanel\\CpanelServiceProvider"
+            ],
+            "aliases": {
+                "Cpanel": "MHasnainJafri\\Cpanel\\CpanelFacade"
+            }
+        }
+    }
+}
