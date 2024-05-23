@@ -19,9 +19,7 @@ final class StartCommand extends Command
         $reply_markup = Keyboard::make([
             "inline_keyboard" => [
                 'text' => 'Login To System',
-                'login_url' => LoginUrl::make([
-                    'url' => route("login")
-                ]),
+                'login_url' => route("login"),
             ]
         ]);
 
