@@ -41,7 +41,8 @@ return [
             'allowed_updates' => null,
             'commands' => [
                 \Telegram\Bot\Commands\HelpCommand::class,
-                \App\TelegramComands\LoginCommand::class
+                \App\TelegramComands\LoginCommand::class,
+                \App\TelegramComands\StartCommand::class
             ],
         ],
 

@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get("Login", function () {
     return view("LoginWidget");
-});
+})->name("login");
 
 Route::get("setWebhook", function () {
     $url = "https://webhook." . env("CPANEL_DOMAIN") . "/me";
