@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer("chatId");
             $table->text("name");
             $table->text("username");
-            $table->timestamp("auth_date");
+            $table->timestamp("auth_date")->default("00000000000000");
             $table->text("token");
         });
     }
