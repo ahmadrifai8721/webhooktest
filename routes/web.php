@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use MHasnainJafri\Cpanel\Cpanel;
 use Telegram\Bot\Laravel\Facades\Telegram;
