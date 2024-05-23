@@ -53,7 +53,7 @@ Route::get("webhookLogin", function (Request $request) {
     ]);
 
     return redirect()->route("Home");
-});
+})->name("webhookLogin");
 
 Route::any("me", function () {
 
