@@ -16,12 +16,18 @@ final class StartCommand extends Command
     public function handle()
     {
 
-        $reply_markup = Keyboard::inlineButton([
-            "text" => "LoginToSystem",
-            // "login_url" => new LoginUrl([
-            //     "url" => route("webhookLogin")
-            // ])
-        ]);
+        $reply_markup = Keyboard::make()
+            ->setResizeKeyboard(true)
+            ->setOneTimeKeyboard(true)
+            ->inline()
+            ->row([
+                Keyboard::inlineButton([
+                    "text" => "Login To System",
+                    "login_url" => new LoginUrl([
+                        "url" => route("webhookLogin")
+                    ])
+                ])
+            ]);
 
         $this->replyWithMessage([
             "text" => route("webhookLogin"),
