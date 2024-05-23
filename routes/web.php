@@ -29,24 +29,30 @@ Route::get("webhookStatus", function () {
     $data = [
         Telegram::getWebhookInfo(),
         Telegram::getWebhookUpdate(),
-
     ];
 
     return $data;
 });
 
 Route::any("me", function () {
-    // $cpanel =
-    //     $cpanel = new Cpanel(env("CPANEL_DOMAIN"), env("CPANEL_API_TOKEN"), env("CPANEL_USERNAME"), 'https', env("CPANEL_PORT"));
-    // return response($cpanel->callUAPI("ResourceUsage", "get_usages", [
+
+    $update = Telegram::commandsHandler(true);
+    $chatID = $update->getChat();
+
+    $teleSend = Telegram::sendMessage([
+        'chat_id' => 844478228,
+        'text' => "$chatID"
+    ]);
+
+    return response()->json(json_encode($teleSend), 200);
+});
+Route::get("UAPI", function () {
+    $cpanel =
+        $cpanel = new Cpanel(env("CPANEL_DOMAIN"), env("CPANEL_API_TOKEN"), env("CPANEL_USERNAME"), 'https', env("CPANEL_PORT"));
+    // return response($cpanel->callUAPI("VersionControl", "update", [
     //     // "zone" => "koalaterbang.cloud",
     //     // "domain" => "koalaterbang.cloud",
-    //     // "system_default" => 0
-    // ]));
-    $update = Telegram::commandsHandler(true);
-
-    return Telegram::sendMessage([
-        'chat_id' => 844478228,
-        'text' => "json_encode($update)"
-    ]);
+    //     // "system_default" => 0,
+    //     "repository_root" => "/home/koab8571/public_html/webhook/",
+    // ]), 200);
 });
