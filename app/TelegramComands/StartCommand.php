@@ -16,14 +16,14 @@ final class StartCommand extends Command
     public function handle()
     {
 
-        $reply_markup = Keyboard::make(
-            Keyboard::inlineButton([
+        $reply_markup = Keyboard::make([
+            "inline_keyboard" => [
                 'text' => 'Login To System',
                 'login_url' => LoginUrl::make([
                     'url' => route("login")
                 ]),
-            ])
-        );
+            ]
+        ]);
 
         $this->replyWithMessage([
             "text" => "info info",
