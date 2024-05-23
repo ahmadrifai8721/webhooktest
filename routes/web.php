@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use MHasnainJafri\Cpanel\Cpanel;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -32,6 +33,10 @@ Route::get("webhookStatus", function () {
     ];
 
     return $data;
+});
+
+Route::get("webhookLogin", function (Request $request) {
+    return $request;
 });
 
 Route::any("me", function () {

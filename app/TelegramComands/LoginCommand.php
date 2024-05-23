@@ -7,13 +7,13 @@ use Telegram\Bot\Commands\Command;
 
 final class LoginCommand extends Command
 {
-    protected string $name = 'start';
-    protected string $description = 'Start Command to get you started';
+    protected string $name = 'login';
+    protected string $description = 'Login To System';
 
     public function handle()
     {
         $this->replyWithMessage([
-            'text' => 'Hey, there! Welcome to our bot!',
+            "text" => "Ini Menu Login"
         ]);
     }
 }
