@@ -22,7 +22,7 @@ final class StartCommand extends Command
             ->row([
                 Keyboard::inlineButton([
                     'text' => 'Login',
-                    "url" => route("webhookLogin")
+                    "login_url" => route("webhookLogin")
                 ])
             ]);
 
