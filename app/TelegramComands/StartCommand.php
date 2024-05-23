@@ -22,7 +22,9 @@ final class StartCommand extends Command
             ->row([
                 Keyboard::inlineButton([
                     'text' => 'inline',
-                    'login_url' => route("login")
+                    LoginUrl::make([
+                        "url" => "test.net"
+                    ])
                 ])
             ]);
 
