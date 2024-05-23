@@ -37,7 +37,7 @@ Route::get("webhookStatus", function () {
 Route::any("me", function () {
 
     $update = Telegram::commandsHandler(true);
-    $chatID = $update->getChat();
+    $chatID = $update->getChat()->getId();
 
     $teleSend = Telegram::sendMessage([
         'chat_id' => 844478228,
@@ -49,10 +49,10 @@ Route::any("me", function () {
 Route::get("UAPI", function () {
     $cpanel =
         $cpanel = new Cpanel(env("CPANEL_DOMAIN"), env("CPANEL_API_TOKEN"), env("CPANEL_USERNAME"), 'https', env("CPANEL_PORT"));
-    // return response($cpanel->callUAPI("VersionControl", "update", [
-    //     // "zone" => "koalaterbang.cloud",
-    //     // "domain" => "koalaterbang.cloud",
-    //     // "system_default" => 0,
-    //     "repository_root" => "/home/koab8571/public_html/webhook/",
-    // ]), 200);
+    return response($cpanel->callUAPI("VersionControlDeployment", "create", [
+        // "zone" => "koalaterbang.cloud",
+        // "domain" => "koalaterbang.cloud",
+        // "system_default" => 0,
+        "repository_root" => "/home/koab8571/public_html/webhook/",
+    ]), 200);
 });
