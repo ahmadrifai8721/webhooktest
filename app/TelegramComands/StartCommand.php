@@ -20,7 +20,7 @@ final class StartCommand extends Command
             ->setResizeKeyboard(true)
             ->setOneTimeKeyboard(true)
             ->inlineButton([
-                'login_url' => route("Login")
+                'login_url' => route("login")
             ]);
 
         $this->replyWithMessage([
