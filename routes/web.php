@@ -38,10 +38,11 @@ Route::any("me", function () {
 
     $update = Telegram::commandsHandler(true);
     $chatID = $update->getChat()->getId();
+    $getMessage = $update->getMessage();
 
     $teleSend = Telegram::sendMessage([
-        'chat_id' => 844478228,
-        'text' => "$chatID"
+        'chat_id' => $chatID,
+        'text' => "$getMessage"
     ]);
 
     return response()->json(json_encode($teleSend), 200);
