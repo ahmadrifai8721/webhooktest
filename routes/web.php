@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("Login", function () {
+    return view("LoginWidget");
+});
+
 Route::get("setWebhook", function () {
     $url = "https://webhook." . env("CPANEL_DOMAIN") . "/me";
     // dd($url);
