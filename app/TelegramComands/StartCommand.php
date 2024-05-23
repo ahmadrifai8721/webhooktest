@@ -19,8 +19,8 @@ final class StartCommand extends Command
         $reply_markup = Keyboard::make()
             ->setResizeKeyboard(true)
             ->setOneTimeKeyboard(true)
-            ->row([
-                Keyboard::button("oke")
+            ->inlineButton([
+                'login_url' => route("Login")
             ]);
 
         $this->replyWithMessage([
