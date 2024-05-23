@@ -18,9 +18,9 @@ final class StartCommand extends Command
 
         $reply_markup = Keyboard::inlineButton([
             "text" => "Login To System",
-            "login_url" => new LoginUrl([
-                "url" => route("webhookLogin")
-            ])
+            // "login_url" => new LoginUrl([
+            //     "url" => route("webhookLogin")
+            // ])
         ]);
 
         $this->replyWithMessage([
