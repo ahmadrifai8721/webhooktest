@@ -23,8 +23,10 @@ final class StartCommand extends Command
             ->setOneTimeKeyboard(true)
             ->row([
                 Keyboard::button([
-                    'text' => 'Login',
-                    "url" => route("login")
+                    "inline_keyboard" => [
+                        'text' => 'Login',
+                        "url" => route("login")
+                    ]
                 ])
             ]);
 
