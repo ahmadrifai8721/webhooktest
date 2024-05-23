@@ -21,10 +21,8 @@ final class StartCommand extends Command
             ->setOneTimeKeyboard(true)
             ->row([
                 Keyboard::inlineButton([
-                    'text' => 'inline',
-                    LoginUrl::make([
-                        "url" => "test.net"
-                    ])
+                    'text' => 'Login',
+                    "url" => route("login")
                 ])
             ]);
 
