@@ -20,6 +20,7 @@ final class StartCommand extends Command
             ->setResizeKeyboard(true)
             ->setOneTimeKeyboard(true)
             ->inlineButton([
+                'text' => 'inline',
                 'login_url' => route("login")
             ]);
 
