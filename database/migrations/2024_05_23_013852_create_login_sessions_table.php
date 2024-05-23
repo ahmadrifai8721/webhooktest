@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('domain_lists', function (Blueprint $table) {
+        Schema::create('login_sessions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer("chatId");
+            $table->text("name");
+            $table->text("username");
+            $table->timestamp("auth_date");
+            $table->text("token");
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('domain_lists');
+        Schema::dropIfExists('login_sessions');
     }
 };

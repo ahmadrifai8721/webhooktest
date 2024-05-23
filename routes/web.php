@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\LoginSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use MHasnainJafri\Cpanel\Cpanel;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -18,7 +20,7 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("Home");
 
 Route::get("Login", function () {
     return view("LoginWidget");
@@ -32,15 +34,25 @@ Route::get("setWebhook", function () {
 Route::get("webhookStatus", function () {
 
     $data = [
-        Telegram::getWebhookInfo(),
-        Telegram::getWebhookUpdate(),
+        "last_error_date" => date("d/F/Y H:i:s e", Telegram::getWebhookInfo()->last_error_date),
+        "last_error_message" => Telegram::getWebhookInfo()->last_error_message,
+        "status_code" => 200
     ];
 
-    return $data;
+    return response()->json($data, 200);
 });
 
 Route::get("webhookLogin", function (Request $request) {
-    return $request;
+
+    LoginSession::create([
+        'chatId' => $request->input("id"),
+        'name' => $request->input('first_name') . " " . $request->input('last_name'),
+        'username' => $request->input('username'),
+        'auth_date' => $request->input('auth_date'),
+        'token' => $request->input('hash'),
+    ]);
+
+    return redirect()->route("Home");
 });
 
 Route::any("me", function () {
@@ -66,4 +78,10 @@ Route::get("UAPI", function () {
         // "system_default" => 0,
         "repository_root" => "/home/koab8571/public_html/webhook/",
     ]), 200);
+});
+
+
+Route::get("Artisan/{Command}", function ($Command) {
+
+    return Artisan::call($Command);
 });
