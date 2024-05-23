@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer("chatId");
             $table->text("name");
             $table->text("username");
-            $table->integer("auth_date");
+            $table->string("auth_date");
             $table->text("token");
         });
     }
