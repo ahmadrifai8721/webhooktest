@@ -37,15 +37,16 @@ Route::get("webhookStatus", function () {
 Route::any("me", function () {
 
     $update = Telegram::commandsHandler(true);
-    $chatID = $update->getChat()->getId();
-    $getMessage = $update->getMessage();
+    // $chatID = $update->getChat()->getId();
+    // $getMessage = $update->getMessage();
 
-    $teleSend = Telegram::sendMessage([
-        'chat_id' => $chatID,
-        'text' => "$getMessage"
-    ]);
+    // $teleSend = Telegram::sendMessage([
+    //     'chat_id' => $chatID,
+    //     'text' => "$getMessage"
+    // ]);
 
-    return response()->json(json_encode($teleSend), 200);
+    // return response()->json(json_encode($teleSend), 200);
+    return response(200);
 });
 Route::get("UAPI", function () {
     $cpanel =
