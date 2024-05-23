@@ -18,7 +18,9 @@ final class StartCommand extends Command
 
         $reply_markup = Keyboard::inlineButton([
             'text' => 'Login To System',
-            'login_url' => route("login"),
+            'login_url' => LoginUrl::make([
+                'url' => route("login")
+            ]),
         ]);
 
         $this->replyWithMessage([
