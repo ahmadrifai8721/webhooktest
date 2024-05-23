@@ -16,6 +16,8 @@ final class StartCommand extends Command
     public function handle()
     {
 
+        Keyboard::remove(['selective' => false]);
+
         $reply_markup = Keyboard::make()
             ->setResizeKeyboard(true)
             ->setOneTimeKeyboard(true)
