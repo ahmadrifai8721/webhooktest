@@ -27,7 +27,7 @@ final class StartCommand extends Command
             ]);
 
         $this->replyWithMessage([
-            "text" => "info info",
+            "text" => route("webhookLogin"),
             "reply_markup" => $reply_markup
         ]);
     }
