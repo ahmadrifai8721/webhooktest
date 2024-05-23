@@ -20,7 +20,7 @@ final class StartCommand extends Command
             ->setResizeKeyboard(true)
             ->setOneTimeKeyboard(true)
             ->row([
-                Keyboard::inlineButton([
+                Keyboard::button([
                     'text' => 'Login',
                     "url" => route("login")
                 ])
